@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>My Angular App!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/d3/d3.js"></script>
+    <script src="/node_modules/nvd3/build/nv.d3.js"></script>
+    <script src="/node_modules/angular-nvd3/dist/angular-nvd3.js"></script>
+    <script src="/js/controllers/main.js"></script>
+
+    <link href="/node_modules/nvd3/build/nv.d3.css" rel="stylesheet">
+  </head>
+  <body ng-app="alpha">
+    <div ng-controller="MainCtrl">
+      <select ng-model="period" ng-options="selection for selection in periods">
+      </select>
+      <input type="submit" value="Select" ng-click="submit(period)"></br>
+      <nvd3 options='options' data='data'></nvd3>
+    </div>
+    <div ng-controller="TableCtrl">
+      <input style="text-align: center;" type="text" placeholder="Search Filter" ng-model="search"/>
+      <div class="container">
+        <table class="table table-striped table-hover">
+          <tr>
+            <th colspan="3">Invoice</th>
+          </tr>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Amount</th>
+          </tr>
+          <tr ng-repeat="item in data | filter:search">
+            <td>{{ item.date }}</td>
+            <td>{{ item.customer}}</td>
+            <td>${{ item.amount}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

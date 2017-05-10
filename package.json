@@ -1,0 +1,24 @@
+{
+  "name": "alpha",
+  "version": "1.0.0",
+  "description": "coding challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-nvd3": "^1.0.9",
+    "body-parser": "^1.17.1",
+    "d3": "^3.5.17",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3",
+    "morgan": "^1.8.1",
+    "nvd3": "^1.8.5",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
+  }
+}
